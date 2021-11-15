@@ -14,6 +14,6 @@ struct BuildingData
 	template<class Archive>
 	void serialize(Archive& archive)
 	{
-		archive(buildingId, name, imagePath, cost, effect);
+		archive(CEREAL_NVP(buildingId), CEREAL_NVP(name), CEREAL_NVP(imagePath), CEREAL_NVP(cost), CEREAL_NVP(effect));
 	}
 };

@@ -12,6 +12,6 @@ public:
 	template<class Archive>
 	void serialize(Archive& archive)
 	{
-		archive(name, description, value);
+		archive(CEREAL_NVP(name), CEREAL_NVP(description), CEREAL_NVP(value));
 	}
 };

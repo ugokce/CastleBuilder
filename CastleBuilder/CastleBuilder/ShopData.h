@@ -11,7 +11,7 @@ struct TabData
 	template<class Archive>
 	void serialize(Archive& archive)
 	{
-		archive(name);
+		archive(CEREAL_NVP(name));
 	}
 };
 
@@ -23,6 +23,6 @@ struct Shop
 	template<class Archive>
 	void serialize(Archive& archive)
 	{
-		archive(tabs, shopItems);
+		archive(CEREAL_NVP(tabs), CEREAL_NVP(shopItems));
 	}
 };

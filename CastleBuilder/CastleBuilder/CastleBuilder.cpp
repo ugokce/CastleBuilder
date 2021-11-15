@@ -4,6 +4,11 @@
 #include <iostream>
 #include <stdio.h>
 #include <SFML\Graphics.hpp>
+#include "ShopItemData.h"
+#include <archives/xml.hpp>
+#include <fstream>
+#include "ShopData.h"
+#include "Vec2f.h"
 
 using namespace sf;
 
@@ -18,6 +23,51 @@ namespace
 
 int main()
 {
+
+	std::ofstream os(R"(C:\Users\Ugurcan\Desktop\data.xml)");
+	cereal::XMLOutputArchive archive(os);
+
+	Shop shopData;
+
+	ShopItem item;
+	item.cost = { 100, PriceType::Diamond };
+	item.description = "sadasdasdasd";
+	item.itemId = 10;
+	item.levelCap = 10;
+	item.name = "mahmut";
+
+	ShopItem item2;
+	item2.cost = { 100, PriceType::Silver };
+	item2.description = "sadasdasdasd2";
+	item2.itemId = 10;
+	item2.levelCap = 10;
+	item2.name = "mahmut2";
+
+	ShopItem item3;
+	item3.cost = { 100, PriceType::Gold };
+	item3.description = "sadasdasdasd3";
+	item3.itemId = 10;
+	item3.levelCap = 10;
+	item3.name = "mahmut3";
+
+	std::vector<ShopItem> items = { item, item2, item3 };
+
+	std::vector<ShopItem> items2 = { item2, item, item3 };
+
+	shopData.shopItems[0] = items;
+	shopData.shopItems[1] = items2;
+
+	TabData tab;
+	tab.name = "tab1";
+
+	TabData tab2;
+	tab.name = "tab2";
+
+	shopData.tabs[0] = tab;
+	shopData.tabs[1] = tab2;
+
+	archive(CEREAL_NVP(shopData));
+
 	sf::RenderWindow window(sf::VideoMode(screenSize.x, screenSize.y), "Castle Builder");
 
 	RectangleShape gridArea(Vector2f(screenSize.x * .75f, screenSize.y * .6f));

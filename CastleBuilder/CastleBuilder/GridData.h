@@ -12,6 +12,6 @@ struct GridData
 	template<class Archive>
 	void serialize(Archive& archive)
 	{
-		archive(position, scale, buildingId);
+		archive(CEREAL_NVP(position), CEREAL_NVP(scale), CEREAL_NVP(buildingId));
 	}
 };

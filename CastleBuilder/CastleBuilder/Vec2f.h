@@ -14,6 +14,6 @@ struct Vec2f
 	template<class Archive>
 	void serialize(Archive& archive)
 	{
-		archive(x, y);
+		archive(CEREAL_NVP(x), CEREAL_NVP(y));
 	}
 };

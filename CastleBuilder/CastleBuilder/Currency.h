@@ -1,5 +1,7 @@
 #pragma once
 
+#include "cereal.hpp"
+
 enum class PriceType
 {
 	Gold,
