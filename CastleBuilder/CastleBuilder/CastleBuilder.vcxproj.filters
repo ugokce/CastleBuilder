@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\SceneObjects">
+      <UniqueIdentifier>{c52ece98-ad08-4503-98a2-cceff5b5c1c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DataObjects">
+      <UniqueIdentifier>{96897b77-a292-4922-ad8f-f6addacdcebb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CastleBuilder.cpp">
@@ -27,43 +33,52 @@
     <ClCompile Include="GameConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MapData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShopData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShopItemData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GridData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BuildingData.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Effect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StringUtils.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\DataObjects</Filter>
     </ClInclude>
     <ClInclude Include="Currency.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\DataObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Vec2f.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MapDataSerializer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MapManager.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Effect.h">
+      <Filter>Header Files\DataObjects</Filter>
     </ClInclude>
     <ClInclude Include="GameConfig.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\DataObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GridData.h">
+      <Filter>Header Files\DataObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="MapData.h">
+      <Filter>Header Files\DataObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="MapDataSerializer.h">
+      <Filter>Header Files\DataObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="MapManager.h">
+      <Filter>Header Files\DataObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopData.h">
+      <Filter>Header Files\DataObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopItemData.h">
+      <Filter>Header Files\DataObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="StringUtils.h">
+      <Filter>Header Files\DataObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2f.h">
+      <Filter>Header Files\DataObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>Header Files\SceneObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObject.h">
+      <Filter>Header Files\SceneObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

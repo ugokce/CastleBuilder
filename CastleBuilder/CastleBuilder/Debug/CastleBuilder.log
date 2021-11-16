@@ -1,34 +1,25 @@
 ﻿  CastleBuilder.cpp
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(92,70): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(94,70): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(92,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(94,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(93,71): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(95,71): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(93,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(95,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(161,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
-          with
-          [
-              T=int
-          ]
-          and
-          [
-              T=float
-          ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(161,63): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(168,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
           with
           [
               T=int
@@ -37,4 +28,14 @@ C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuild
           [
               T=float
           ]
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(168,63): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+     Creating library C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\Debug\CastleBuilder.lib and object C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\Debug\CastleBuilder.exp
   CastleBuilder.vcxproj -> C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\Debug\CastleBuilder.exe
