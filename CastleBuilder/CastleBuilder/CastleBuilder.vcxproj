@@ -152,13 +152,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CastleBuilder.cpp" />
+    <ClCompile Include="GameConfig.cpp" />
+    <ClCompile Include="MapDataSerializer.cpp" />
+    <ClCompile Include="MapManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BuildingData.h" />
     <ClInclude Include="Currency.h" />
     <ClInclude Include="Effect.h" />
+    <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GridData.h" />
     <ClInclude Include="MapData.h" />
+    <ClInclude Include="MapDataSerializer.h" />
+    <ClInclude Include="MapManager.h" />
     <ClInclude Include="Vec2f.h" />
     <ClInclude Include="ShopData.h" />
     <ClInclude Include="ShopItemData.h" />

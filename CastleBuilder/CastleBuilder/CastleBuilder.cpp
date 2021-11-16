@@ -19,6 +19,8 @@ namespace
 	Vector2i mousePosition = {};
 	bool isAnItemSelected = false;
 	ConvexShape* selectedGrid = nullptr;
+	bool IsZoomed = false;
+	float defaultScale = 1.f;
 }
 
 int main()
@@ -83,6 +85,8 @@ int main()
 	backgroundSprite.setTexture(mapTexture);
 	//Background Map
 
+	sf::View view = window.getDefaultView();
+
 	const Vector2f gridNodeSize = { 150, 100 };
 
 	const int numberOfGridsCanFitInX = gridArea.getGlobalBounds().width / gridNodeSize.x;
@@ -128,12 +132,29 @@ int main()
 
 
 		Vector2i mousePositionDelta = Mouse::getPosition(window) - mousePosition;
-		std::printf("pos %d,%d delta %d,%d", mousePosition.x, mousePosition.y, mousePositionDelta.x, mousePositionDelta.y);
+		//std::printf("pos %d,%d delta %d,%d", mousePosition.x, mousePosition.y, mousePositionDelta.x, mousePositionDelta.y);
 		mousePosition = Mouse::getPosition(window);
 
 		window.clear();
+		window.setView(view);
 		window.draw(backgroundSprite);
 		window.draw(gridArea);
+
+		//ZOOM IN
+		if (Keyboard::isKeyPressed(Keyboard::Z) && !IsZoomed)
+		{
+			IsZoomed = true;
+			view.zoom(.75f);
+			std::printf("zoom");
+		}
+
+		//ZOOM OUT
+		if (Keyboard::isKeyPressed(Keyboard::X) && IsZoomed)
+		{
+			view.setSize(window.getDefaultView().getSize());
+			std::printf("zoom out");
+			IsZoomed = false;
+		}
 
 		for (auto& grid : gridVector)
 		{

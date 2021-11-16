@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML\Graphics.hpp>
+#include "cereal.hpp"
 
 struct Vec2f
 {
