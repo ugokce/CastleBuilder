@@ -10,6 +10,7 @@
 #include "ShopData.h"
 #include "Vec2f.h"
 #include "GameScene.h"
+#include "GameConfig.h"
 
 using namespace sf;
 
@@ -26,7 +27,7 @@ namespace
 	GameScene currentScene;
 }
 
-int main()
+void SerializeShopItems()
 {
 	std::ofstream os(R"(C:\Users\Ugurcan\Desktop\data.xml)");
 	cereal::XMLOutputArchive archive(os);
@@ -71,6 +72,24 @@ int main()
 	shopData.tabs[1] = tab2;
 
 	archive(CEREAL_NVP(shopData));
+}
+
+void SerializeGameConfig()
+{
+	GameConfigData config;
+	config.mapsFolder = "../Maps";
+
+	std::ofstream os("../Config/Config.xml");
+	cereal::XMLOutputArchive archive(os);
+	archive(CEREAL_NVP(config));
+}
+
+int main()
+{
+	SerializeShopItems();
+
+	SerializeGameConfig();
+	
 
 	sf::RenderWindow window(sf::VideoMode(screenSize.x, screenSize.y), "Castle Builder");
 
