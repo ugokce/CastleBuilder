@@ -24,7 +24,7 @@ namespace
 	bool IsZoomed = false;
 	float defaultScale = 1.f;
 
-	GameScene currentScene;
+	
 }
 
 void SerializeShopItems()
@@ -92,6 +92,8 @@ int main()
 	
 
 	sf::RenderWindow window(sf::VideoMode(screenSize.x, screenSize.y), "Castle Builder");
+
+	GameScene currentScene(window);
 
 	RectangleShape gridArea(Vector2f(screenSize.x * .75f, screenSize.y * .6f));
 	gridArea.setOutlineColor(Color::Cyan);
@@ -161,8 +163,8 @@ int main()
 		window.draw(currentScene);
 		currentScene.update(window);
 
-		window.draw(backgroundSprite);
-		window.draw(gridArea);
+		//window.draw(backgroundSprite);
+		//window.draw(gridArea);
 
 		//ZOOM IN
 		if (Keyboard::isKeyPressed(Keyboard::Z) && !IsZoomed)
@@ -180,7 +182,7 @@ int main()
 			IsZoomed = false;
 		}
 
-		for (auto& grid : gridVector)
+		/*for (auto& grid : gridVector)
 		{
 			if (Mouse::isButtonPressed(Mouse::Left))
 			{
@@ -207,7 +209,7 @@ int main()
 		{
 			selectedGrid->setPosition(Vector2f((float)mousePosition.x - selectedGrid->getGlobalBounds().width * .5f, (float)mousePosition.y - selectedGrid->getGlobalBounds().height * .5f));
 		}
-
+		*/
 		window.display();
 	}
 

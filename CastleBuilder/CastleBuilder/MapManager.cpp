@@ -6,6 +6,7 @@ MapManager* instance = nullptr;
 
 const MapData& MapManager::getMap() const
 {
+
 	return currentMap;
 }
 

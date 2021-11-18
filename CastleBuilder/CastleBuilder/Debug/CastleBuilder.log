@@ -1,25 +1,5 @@
-﻿  CastleBuilder.cpp
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(113,70): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(113,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(114,71): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(114,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(187,80): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+﻿  Button.cpp
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\Button.cpp(45,76): warning C4244: 'argument': conversion from 'const T' to 'T', possible loss of data
           with
           [
               T=int
@@ -28,7 +8,7 @@ C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuild
           [
               T=float
           ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(187,63): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\Button.cpp(45,59): warning C4244: 'argument': conversion from 'const T' to 'T', possible loss of data
           with
           [
               T=int
@@ -37,5 +17,6 @@ C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuild
           [
               T=float
           ]
-     Creating library C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\Debug\CastleBuilder.lib and object C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\Debug\CastleBuilder.exp
+  GameScene.cpp
+  Generating Code...
   CastleBuilder.vcxproj -> C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\Debug\CastleBuilder.exe

@@ -1,9 +1,10 @@
 #pragma once
 
 #include "SFML\Graphics\Drawable.hpp"
-#include "SFML\Graphics\Sprite.hpp"
+#include "SFML\Graphics\RectangleShape.hpp"
 #include "SceneObject.h"
 #include <vector>
+#include "Button.h"
 
 namespace sf
 {
@@ -15,8 +16,10 @@ class GameScene : public sf::Drawable
 {
 public:
 	GameScene();
+	GameScene(const sf::RenderWindow& window);
 	~GameScene();
 	void update(const sf::RenderWindow& window);
+	void addChildObject(SceneObject* child);
 protected:
 	
 	// Inherited via Drawable
@@ -24,7 +27,10 @@ protected:
 
 private:
 	std::vector<SceneObject*> objectsToDraw;
-	sf::Sprite mapBackground;
+	sf::RectangleShape mapBackground;
+	Button denemeButton;
+
+	sf::Vector2f size;
 
 	void createBackground();
 };

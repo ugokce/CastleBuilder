@@ -10,6 +10,7 @@ GameConfigManager* GameConfigManager::getInstance()
 	if (instance == nullptr)
 	{
 		instance = new GameConfigManager();
+		instance->LoadConfig();
 	}
 
 	return instance;

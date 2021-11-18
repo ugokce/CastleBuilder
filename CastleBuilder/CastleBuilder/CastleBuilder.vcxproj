@@ -151,7 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="CastleBuilder.cpp" />
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="GameConfig.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="MapDataSerializer.cpp" />
@@ -159,8 +161,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BuildingData.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Currency.h" />
     <ClInclude Include="Effect.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GridData.h" />
