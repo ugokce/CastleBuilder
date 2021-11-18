@@ -18,8 +18,8 @@ Button::Button(const std::string& texturePath, const sf::Vector2f& size, const s
 	buttonSprite = sf::RectangleShape(size);
 	buttonSprite.setTexture(mapTexture);
 	buttonSprite.setPosition(position);
-	sf::Vector2f buttonScale = sf::Vector2f(mapTexture->getSize().x / size.x, mapTexture->getSize().y / size.y);
-	buttonSprite.setScale(buttonScale);
+	//sf::Vector2f buttonScale = sf::Vector2f(mapTexture->getSize().x / size.x, mapTexture->getSize().y / size.y);
+	//buttonSprite.setScale(buttonScale);
 	defaultScale = buttonSprite.getScale();
 	buttonSprite.setOutlineColor(sf::Color::Black);
 }

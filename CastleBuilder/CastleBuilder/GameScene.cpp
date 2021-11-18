@@ -49,7 +49,10 @@ void GameScene::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 	for (auto* childInScene : objectsToDraw)
 	{
-		target.draw(*childInScene);
+		if (childInScene->isVisible())
+		{
+			target.draw(*childInScene);
+		}
 	}
 }
 
@@ -73,11 +76,12 @@ void GameScene::createBackground()
 void GameScene::createGridTiles()
 {
 	const auto& currentMap = MapManager::getInstance()->getMap();
+	gridTiles.reserve(currentMap.grids.size());
 
 	for (const auto& gridData : currentMap.grids)
 	{
-		GridTile tile(gridData);
-		gridTiles.emplace_back(tile);
-		addChildObject(&tile);
+		GridTile* tile = new GridTile(gridData);
+		gridTiles.push_back(tile);
+		addChildObject(tile);
 	}
 }

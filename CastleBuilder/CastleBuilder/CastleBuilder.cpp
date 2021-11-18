@@ -14,6 +14,7 @@
 #include "GridTile.h"
 #include "MapData.h"
 #include "Button.h"
+#include "MapManager.h"
 
 using namespace sf;
 
@@ -134,13 +135,20 @@ int main()
 	mapData.mapName = "firstMap";
 	mapData.texturePath = "../Textures/Map1.jpg";
 
-	const auto buttonPosition = sf::Vector2f(window.getSize().x * .5f, window.getSize().y * .5f);
+	const auto buttonPosition = sf::Vector2f(window.getSize().x * .8f, window.getSize().y * .8f);
 	sf::Vector2f buttonSize = sf::Vector2f(window.getSize().x * .2f, window.getSize().y * .2f);
 	auto serializeGridsButton = Button("../Textures/shop.png", buttonSize, buttonPosition);
 	serializeGridsButton.onHoldEvent.addListener(new EventListener([=]() {
 
-		SerializeGridTiles();
+		//SerializeGridTiles();
 	}));
+
+	const auto& currentMap = MapManager::getInstance()->getMap();
+	GridData denm;
+	sf::Vector2f buttonSize2 = sf::Vector2f(window.getSize().x * .5f, window.getSize().y * .5f);
+	denm.position = buttonSize2;
+	GridTile tileDen(denm);
+
 
 	for (int i = 0; i < numberOfGridsCanFitInX; i++)
 	{
@@ -192,11 +200,11 @@ int main()
 		window.setView(view);
 
 		//Scene Draw And Update
-		//window.draw(currentScene);
-		//currentScene.update(window);
+		window.draw(currentScene);
+		currentScene.update(window);
 
-		window.draw(backgroundSprite);
-		window.draw(gridArea);
+		//window.draw(backgroundSprite);
+		//window.draw(gridArea);
 
 		window.draw(serializeGridsButton);
 		serializeGridsButton.Update(window);
@@ -217,7 +225,7 @@ int main()
 			IsZoomed = false;
 		}
 
-		for (auto& grid : gridVector)
+		/*for (auto& grid : gridVector)
 		{
 			if (Mouse::isButtonPressed(Mouse::Left))
 			{
@@ -243,7 +251,7 @@ int main()
 		if (selectedGrid)
 		{
 			selectedGrid->setPosition(Vector2f((float)mousePosition.x - selectedGrid->getGlobalBounds().width * .5f, (float)mousePosition.y - selectedGrid->getGlobalBounds().height * .5f));
-		}
+		}*/
 		
 		window.display();
 	}

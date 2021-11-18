@@ -6,7 +6,7 @@
 #include "SFML\Graphics\Rect.hpp"
 #include "SFML\Graphics\Transformable.hpp"
 
-class GridTile : public SceneObject, sf::Transformable
+class GridTile : public SceneObject
 {
 public:
 	GridTile(const GridData& gridData);
@@ -19,5 +19,7 @@ private:
 	sf::RectangleShape buildingSprite;
 	GridData data;
 
+	sf::Vector2f position;
+	float scale;
 	void createBuildingImage();
 };
