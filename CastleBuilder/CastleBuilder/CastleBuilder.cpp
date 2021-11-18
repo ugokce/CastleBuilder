@@ -11,6 +11,7 @@
 #include "Vec2f.h"
 #include "GameScene.h"
 #include "GameConfig.h"
+#include "GridTile.h"
 
 using namespace sf;
 

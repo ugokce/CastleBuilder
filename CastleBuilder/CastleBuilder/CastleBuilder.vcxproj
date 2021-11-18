@@ -156,6 +156,7 @@
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="GameConfig.cpp" />
     <ClCompile Include="GameScene.cpp" />
+    <ClCompile Include="GridTile.cpp" />
     <ClCompile Include="MapDataSerializer.cpp" />
     <ClCompile Include="MapManager.cpp" />
   </ItemGroup>
@@ -168,6 +169,7 @@
     <ClInclude Include="GameConfig.h" />
     <ClInclude Include="GameScene.h" />
     <ClInclude Include="GridData.h" />
+    <ClInclude Include="GridTile.h" />
     <ClInclude Include="MapData.h" />
     <ClInclude Include="MapDataSerializer.h" />
     <ClInclude Include="MapManager.h" />
