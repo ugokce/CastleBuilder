@@ -12,6 +12,13 @@ struct Vec2f
 		return sf::Vector2f(x, y);
 	};
 
+	template<typename T>
+	void operator = (const sf::Vector2<T>& other) {
+
+		x = other.x;
+		y = other.y;
+	}
+
 	template<class Archive>
 	void serialize(Archive& archive)
 	{

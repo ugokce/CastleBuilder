@@ -19,8 +19,10 @@ GameScene::GameScene(const sf::RenderWindow& window)
 
 	createBackground();
 
-	denemeButton = Button("../Textures/shop.png", buttonSize, buttonPosition);
-	addChildObject(&denemeButton);
+	createGridTiles();
+
+	//denemeButton = Button("../Textures/shop.png", buttonSize, buttonPosition);
+	//addChildObject(&denemeButton);
 }
 
 GameScene::~GameScene()
@@ -53,17 +55,29 @@ void GameScene::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void GameScene::createBackground()
 {
-	/*const std::string& mapTexturePath = GameConfigManager::getInstance()->getMapPath();
 	const auto& currentMap = MapManager::getInstance()->getMap();
+	std::string mapTexturePath = currentMap.texturePath;
 
 	if (mapTexturePath.empty())
 	{
+		mapTexturePath = "../Textures/Map1.jpg";
 		assert(("Not A Valid Map Path!", true));
-		return;
-	}*/
+	}
 
 	mapBackground = sf::RectangleShape(size);
 	auto* mapTexture = new sf::Texture();
-	mapTexture->loadFromFile("../Textures/Map1.jpg");
+	mapTexture->loadFromFile(mapTexturePath);
 	mapBackground.setTexture(mapTexture);
+}
+
+void GameScene::createGridTiles()
+{
+	const auto& currentMap = MapManager::getInstance()->getMap();
+
+	for (const auto& gridData : currentMap.grids)
+	{
+		GridTile tile(gridData);
+		gridTiles.emplace_back(tile);
+		addChildObject(&tile);
+	}
 }

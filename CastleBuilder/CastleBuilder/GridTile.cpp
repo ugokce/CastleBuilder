@@ -1,7 +1,9 @@
 #include "GridTile.h"
 
-GridTile::GridTile(const GridData& gridData, const sf::Vector2f& gridPosition, const sf::Vector2f& gridSize) : data(gridData), position(gridPosition), size(gridSize)
+GridTile::GridTile(const GridData& gridData)
 {
+	setScale(gridData.scale, gridData.scale);
+	setPosition(gridData.position);
 	shape.setPointCount(4);
 	shape.setPoint(0, sf::Vector2f(75.f, 0.f));
 	shape.setPoint(1, sf::Vector2f(150.f, 50.f));
@@ -9,7 +11,7 @@ GridTile::GridTile(const GridData& gridData, const sf::Vector2f& gridPosition, c
 	shape.setPoint(3, sf::Vector2f(0.f, 50.f));
 	shape.setOutlineColor(sf::Color::Blue);
 	shape.setFillColor(sf::Color::Transparent);
-	shape.setPosition(position);
+	shape.setPosition(getPosition());
 
 	createBuildingImage();
 }
@@ -20,13 +22,19 @@ void GridTile::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	target.draw(buildingSprite);
 }
 
+sf::FloatRect GridTile::getGlobalBounds() const
+{
+	return shape.getGlobalBounds();
+}
+
 void GridTile::createBuildingImage()
 {
 	auto* mapTexture = new sf::Texture();
 	mapTexture->loadFromFile(data.buildingTexturePath);
-	buildingSprite = sf::RectangleShape(size);
+	sf::Vector2f textureSize = sf::Vector2f(mapTexture->getSize().x * getScale().x, mapTexture->getSize().y * getScale().y);
+	buildingSprite = sf::RectangleShape(textureSize);
 	buildingSprite.setTexture(mapTexture);
-	buildingSprite.setPosition(position);
-	sf::Vector2f spriteScale = sf::Vector2f(mapTexture->getSize().x / size.x * .9f, mapTexture->getSize().y / size.y * .9f);
+	buildingSprite.setPosition(getPosition());
+	sf::Vector2f spriteScale = sf::Vector2f(mapTexture->getSize().x * getScale().x, mapTexture->getSize().y * getScale().y);
 	buildingSprite.setScale(spriteScale);
 }

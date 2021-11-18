@@ -2,6 +2,7 @@
 <cereal>
 	<config>
 		<mapsFolder>../Maps</mapsFolder>
+		<currentMapName>firstMap.xml</currentMapName>
 	</config>
 </cereal>
 

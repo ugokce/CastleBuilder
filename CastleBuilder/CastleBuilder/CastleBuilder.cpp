@@ -12,6 +12,8 @@
 #include "GameScene.h"
 #include "GameConfig.h"
 #include "GridTile.h"
+#include "MapData.h"
+#include "Button.h"
 
 using namespace sf;
 
@@ -25,7 +27,7 @@ namespace
 	bool IsZoomed = false;
 	float defaultScale = 1.f;
 
-	
+	MapData mapData;
 }
 
 void SerializeShopItems()
@@ -75,10 +77,18 @@ void SerializeShopItems()
 	archive(CEREAL_NVP(shopData));
 }
 
+void SerializeGridTiles()
+{
+	std::ofstream os("../Maps/" + mapData.mapName +".xml");
+	cereal::XMLOutputArchive archive(os);
+	archive(CEREAL_NVP(mapData));
+}
+
 void SerializeGameConfig()
 {
 	GameConfigData config;
 	config.mapsFolder = "../Maps";
+	config.currentMapName = "firstMap.xml";
 
 	std::ofstream os("../Config/Config.xml");
 	cereal::XMLOutputArchive archive(os);
@@ -120,10 +130,24 @@ int main()
 
 	std::vector<ConvexShape> gridVector = {};
 
+	mapData.size = { gridArea.getSize().x, gridArea.getSize().y };
+	mapData.mapName = "firstMap";
+	mapData.texturePath = "../Textures/Map1.jpg";
+
+	const auto buttonPosition = sf::Vector2f(window.getSize().x * .5f, window.getSize().y * .5f);
+	sf::Vector2f buttonSize = sf::Vector2f(window.getSize().x * .2f, window.getSize().y * .2f);
+	auto serializeGridsButton = Button("../Textures/shop.png", buttonSize, buttonPosition);
+	serializeGridsButton.onHoldEvent.addListener(new EventListener([=]() {
+
+		SerializeGridTiles();
+	}));
+
 	for (int i = 0; i < numberOfGridsCanFitInX; i++)
 	{
 		for (int j = 0; j < numberOfGridsCanFitInY; j++)
 		{
+
+
 			sf::ConvexShape convex;
 			convex.setPointCount(4);
 			convex.setPoint(0, sf::Vector2f(75.f, 0.f));
@@ -141,6 +165,13 @@ int main()
 			convex.setPosition(Vector2f(startPointX + (i * gridWidth * .5f), startPointY + (i * gridHeight * .5f) + (j * gridHeight)));
 
 			gridVector.emplace_back(convex);
+
+			GridData tileData;
+			tileData.buildingId = 0;
+			tileData.buildingTexturePath = "";
+			tileData.position = convex.getPosition();
+			tileData.scale = 1.f;
+			mapData.grids.emplace_back(tileData);
 		}
 	}
 
@@ -161,11 +192,14 @@ int main()
 		window.setView(view);
 
 		//Scene Draw And Update
-		window.draw(currentScene);
-		currentScene.update(window);
+		//window.draw(currentScene);
+		//currentScene.update(window);
 
-		//window.draw(backgroundSprite);
-		//window.draw(gridArea);
+		window.draw(backgroundSprite);
+		window.draw(gridArea);
+
+		window.draw(serializeGridsButton);
+		serializeGridsButton.Update(window);
 
 		//ZOOM IN
 		if (Keyboard::isKeyPressed(Keyboard::Z) && !IsZoomed)
@@ -183,7 +217,7 @@ int main()
 			IsZoomed = false;
 		}
 
-		/*for (auto& grid : gridVector)
+		for (auto& grid : gridVector)
 		{
 			if (Mouse::isButtonPressed(Mouse::Left))
 			{
@@ -210,7 +244,7 @@ int main()
 		{
 			selectedGrid->setPosition(Vector2f((float)mousePosition.x - selectedGrid->getGlobalBounds().width * .5f, (float)mousePosition.y - selectedGrid->getGlobalBounds().height * .5f));
 		}
-		*/
+		
 		window.display();
 	}
 

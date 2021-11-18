@@ -5,6 +5,7 @@
 #include "SceneObject.h"
 #include <vector>
 #include "Button.h"
+#include "GridTile.h"
 
 namespace sf
 {
@@ -28,9 +29,10 @@ protected:
 private:
 	std::vector<SceneObject*> objectsToDraw;
 	sf::RectangleShape mapBackground;
-	Button denemeButton;
-
+	//Button denemeButton;
+	std::vector<GridTile> gridTiles;
 	sf::Vector2f size;
 
 	void createBackground();
+	void createGridTiles();
 };

@@ -3,21 +3,21 @@
 #include "GridData.h"
 #include "SFML\System\Vector2.hpp"
 #include "SFML\Graphics\ConvexShape.hpp"
+#include "SFML\Graphics\Rect.hpp"
+#include "SFML\Graphics\Transformable.hpp"
 
-class GridTile : public SceneObject
+class GridTile : public SceneObject, sf::Transformable
 {
 public:
-	GridTile(const GridData& gridData, const sf::Vector2f&  gridPosition, 
-		const sf::Vector2f& gridSize);
+	GridTile(const GridData& gridData);
 	// Inherited via SceneObject
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-
+	virtual void draw(sf::RenderTarget& target, 
+		sf::RenderStates states) const override;
+	sf::FloatRect getGlobalBounds() const;
 private:
 	sf::ConvexShape shape;
 	sf::RectangleShape buildingSprite;
 	GridData data;
-	sf::Vector2f position;
-	sf::Vector2f size;
 
 	void createBuildingImage();
 };
