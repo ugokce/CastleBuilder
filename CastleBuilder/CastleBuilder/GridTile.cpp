@@ -4,7 +4,7 @@ GridTile::GridTile(const GridData& gridData)
 {
 	position = gridData.position;
 	scale = gridData.scale;
-
+	data = gridData;
 	shape = sf::ConvexShape(4);
 	shape.setPoint(0, sf::Vector2f(75.f, 0.f));
 	shape.setPoint(1, sf::Vector2f(150.f, 50.f));

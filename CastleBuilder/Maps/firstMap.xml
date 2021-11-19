@@ -9,17 +9,17 @@
 		<grids size="dynamic">
 			<value0>
 				<position>
-					<x>300.5</x>
-					<y>100</y>
+					<x>287.39447021484375</x>
+					<y>163.59629821777344</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
-				<buildingTexturePath></buildingTexturePath>
+				<buildingTexturePath>../Textures/decoration/hangar.png</buildingTexturePath>
 			</value0>
 			<value1>
 				<position>
-					<x>187.5</x>
-					<y>204.80740356445312</y>
+					<x>97.394454956054688</x>
+					<y>254.59628295898438</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -27,8 +27,8 @@
 			</value1>
 			<value2>
 				<position>
-					<x>187.5</x>
-					<y>309.61480712890625</y>
+					<x>456.39447021484375</x>
+					<y>171.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -36,8 +36,8 @@
 			</value2>
 			<value3>
 				<position>
-					<x>187.5</x>
-					<y>414.42221069335938</y>
+					<x>154.39445495605469</x>
+					<y>409.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -45,8 +45,8 @@
 			</value3>
 			<value4>
 				<position>
-					<x>266.10552978515625</x>
-					<y>152.40370178222656</y>
+					<x>194.39445495605469</x>
+					<y>211.59629821777344</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -54,8 +54,8 @@
 			</value4>
 			<value5>
 				<position>
-					<x>266.10552978515625</x>
-					<y>257.21112060546875</y>
+					<x>180.39447021484375</x>
+					<y>308.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -63,8 +63,8 @@
 			</value5>
 			<value6>
 				<position>
-					<x>266.10552978515625</x>
-					<y>362.01849365234375</y>
+					<x>257.39447021484375</x>
+					<y>366.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -72,8 +72,8 @@
 			</value6>
 			<value7>
 				<position>
-					<x>266.10552978515625</x>
-					<y>466.825927734375</y>
+					<x>236.39445495605469</x>
+					<y>464.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -81,8 +81,8 @@
 			</value7>
 			<value8>
 				<position>
-					<x>344.71109008789062</x>
-					<y>204.80740356445312</y>
+					<x>368.39447021484375</x>
+					<y>220.59629821777344</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -90,8 +90,8 @@
 			</value8>
 			<value9>
 				<position>
-					<x>344.71109008789062</x>
-					<y>309.61480712890625</y>
+					<x>360.39443969726562</x>
+					<y>325.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -99,8 +99,8 @@
 			</value9>
 			<value10>
 				<position>
-					<x>344.71109008789062</x>
-					<y>414.42221069335938</y>
+					<x>442.39443969726562</x>
+					<y>385.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -108,8 +108,8 @@
 			</value10>
 			<value11>
 				<position>
-					<x>344.71109008789062</x>
-					<y>519.2296142578125</y>
+					<x>318.39443969726562</x>
+					<y>518.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -117,8 +117,8 @@
 			</value11>
 			<value12>
 				<position>
-					<x>423.316650390625</x>
-					<y>257.21112060546875</y>
+					<x>277.39447021484375</x>
+					<y>267.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -126,8 +126,8 @@
 			</value12>
 			<value13>
 				<position>
-					<x>423.316650390625</x>
-					<y>362.01852416992188</y>
+					<x>447.39447021484375</x>
+					<y>275.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -135,8 +135,8 @@
 			</value13>
 			<value14>
 				<position>
-					<x>423.316650390625</x>
-					<y>466.825927734375</y>
+					<x>340.39447021484375</x>
+					<y>424.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -144,8 +144,8 @@
 			</value14>
 			<value15>
 				<position>
-					<x>423.316650390625</x>
-					<y>571.63330078125</y>
+					<x>439.39447021484375</x>
+					<y>492.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -153,8 +153,8 @@
 			</value15>
 			<value16>
 				<position>
-					<x>501.92218017578125</x>
-					<y>309.61480712890625</y>
+					<x>536.39447021484375</x>
+					<y>226.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -162,8 +162,8 @@
 			</value16>
 			<value17>
 				<position>
-					<x>501.92218017578125</x>
-					<y>414.42221069335938</y>
+					<x>527.39447021484375</x>
+					<y>330.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -171,8 +171,8 @@
 			</value17>
 			<value18>
 				<position>
-					<x>501.92218017578125</x>
-					<y>519.2296142578125</y>
+					<x>526.39447021484375</x>
+					<y>441.5963134765625</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
@@ -180,8 +180,8 @@
 			</value18>
 			<value19>
 				<position>
-					<x>501.92218017578125</x>
-					<y>624.0369873046875</y>
+					<x>781.92218017578125</x>
+					<y>354.0369873046875</y>
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>

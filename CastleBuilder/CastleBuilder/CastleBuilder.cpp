@@ -21,13 +21,13 @@ using namespace sf;
 namespace
 {
 	constexpr auto texture_path = "../Textures/Map1.jpg";
-	const Vector2<int> screenSize = { 1024, 768 };
+	const Vector2<int> screenSize = { 1920, 1080 };
 	Vector2i mousePosition = {};
 	bool isAnItemSelected = false;
 	ConvexShape* selectedGrid = nullptr;
 	bool IsZoomed = false;
 	float defaultScale = 1.f;
-
+	std::vector<ConvexShape> gridVector = {};
 	MapData mapData;
 }
 
@@ -80,6 +80,16 @@ void SerializeShopItems()
 
 void SerializeGridTiles()
 {
+	for (const auto& convex : gridVector)
+	{
+		GridData tileData;
+		tileData.buildingId = 0;
+		tileData.buildingTexturePath = "";
+		tileData.position = convex.getPosition();
+		tileData.scale = 1.f;
+		mapData.grids.emplace_back(tileData);
+	}
+
 	std::ofstream os("../Maps/" + mapData.mapName +".xml");
 	cereal::XMLOutputArchive archive(os);
 	archive(CEREAL_NVP(mapData));
@@ -129,7 +139,7 @@ int main()
 	const float startPointX = gridNodeSize.x * .5f * numberOfGridsCanFitInX * .5f;
 	const float startPointY = gridNodeSize.y * .5f * numberOfGridsCanFitInY * .5f;
 
-	std::vector<ConvexShape> gridVector = {};
+
 
 	mapData.size = { gridArea.getSize().x, gridArea.getSize().y };
 	mapData.mapName = "firstMap";
@@ -142,13 +152,6 @@ int main()
 
 		//SerializeGridTiles();
 	}));
-
-	const auto& currentMap = MapManager::getInstance()->getMap();
-	GridData denm;
-	sf::Vector2f buttonSize2 = sf::Vector2f(window.getSize().x * .5f, window.getSize().y * .5f);
-	denm.position = buttonSize2;
-	GridTile tileDen(denm);
-
 
 	for (int i = 0; i < numberOfGridsCanFitInX; i++)
 	{
@@ -173,13 +176,6 @@ int main()
 			convex.setPosition(Vector2f(startPointX + (i * gridWidth * .5f), startPointY + (i * gridHeight * .5f) + (j * gridHeight)));
 
 			gridVector.emplace_back(convex);
-
-			GridData tileData;
-			tileData.buildingId = 0;
-			tileData.buildingTexturePath = "";
-			tileData.position = convex.getPosition();
-			tileData.scale = 1.f;
-			mapData.grids.emplace_back(tileData);
 		}
 	}
 
