@@ -17,8 +17,8 @@ struct TabData
 
 struct Shop
 {
-	std::map<int, TabData> tabs;
-	std::map<int, std::vector<ShopItem>> shopItems;
+	std::map<std::string, TabData> tabs;
+	std::map<std::string, std::vector<ShopItem>> shopItems;
 
 	template<class Archive>
 	void serialize(Archive& archive)

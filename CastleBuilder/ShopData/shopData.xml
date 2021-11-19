@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cereal>
+	<shopData>
+		<tabs size="dynamic">
+			<value0>
+				<key>Decorations</key>
+				<value>
+					<name>Decorations</name>
+				</value>
+			</value0>
+			<value1>
+				<key>Workshops</key>
+				<value>
+					<name>Workshops</name>
+				</value>
+			</value1>
+		</tabs>
+		<shopItems size="dynamic">
+			<value0>
+				<key>Decorations</key>
+				<value size="dynamic">
+					<value0>
+						<name>Bridge</name>
+						<description>Bridge</description>
+						<cost>
+							<value>13200000</value>
+							<type>0</type>
+						</cost>
+						<levelCap>1</levelCap>
+						<itemId>6</itemId>
+						<texturePath>../Textures/decoration/government.png</texturePath>
+					</value0>
+					<value1>
+						<name>Hangar</name>
+						<description>Hangar Building</description>
+						<cost>
+							<value>1234900</value>
+							<type>0</type>
+						</cost>
+						<levelCap>3</levelCap>
+						<itemId>7</itemId>
+						<texturePath>../Textures/decoration/hangar.png</texturePath>
+					</value1>
+				</value>
+			</value0>
+			<value1>
+				<key>Workshops</key>
+				<value size="dynamic">
+					<value0>
+						<name>Drugstore</name>
+						<description>Best Pharmacy</description>
+						<cost>
+							<value>10000</value>
+							<type>0</type>
+						</cost>
+						<levelCap>2</levelCap>
+						<itemId>1</itemId>
+						<texturePath>../Textures/workshop/drugstore.png</texturePath>
+					</value0>
+					<value1>
+						<name>Government</name>
+						<description>Government Building</description>
+						<cost>
+							<value>12900</value>
+							<type>0</type>
+						</cost>
+						<levelCap>3</levelCap>
+						<itemId>2</itemId>
+						<texturePath>../Textures/workshop/government.png</texturePath>
+					</value1>
+					<value2>
+						<name>Museum</name>
+						<description>Museum Building</description>
+						<cost>
+							<value>15999</value>
+							<type>0</type>
+						</cost>
+						<levelCap>3</levelCap>
+						<itemId>3</itemId>
+						<texturePath>../Textures/workshop/museum.png</texturePath>
+					</value2>
+					<value3>
+						<name>Property</name>
+						<description>Property Building</description>
+						<cost>
+							<value>100000</value>
+							<type>0</type>
+						</cost>
+						<levelCap>6</levelCap>
+						<itemId>4</itemId>
+						<texturePath>../Textures/workshop/property.png</texturePath>
+					</value3>
+					<value4>
+						<name>Temple</name>
+						<description>Temple Building</description>
+						<cost>
+							<value>13000000</value>
+							<type>0</type>
+						</cost>
+						<levelCap>10</levelCap>
+						<itemId>5</itemId>
+						<texturePath>../Textures/workshop/Temple-icon.png</texturePath>
+					</value4>
+				</value>
+			</value1>
+		</shopItems>
+	</shopData>
+</cereal>
+

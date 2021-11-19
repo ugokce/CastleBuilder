@@ -15,13 +15,14 @@
 #include "MapData.h"
 #include "Button.h"
 #include "MapManager.h"
+#include <types/map.hpp>
 
 using namespace sf;
 
 namespace
 {
 	constexpr auto texture_path = "../Textures/Map1.jpg";
-	const Vector2<int> screenSize = { 1920, 1080 };
+	const Vector2<int> screenSize = { 1024, 768 };
 	Vector2i mousePosition = {};
 	bool isAnItemSelected = false;
 	ConvexShape* selectedGrid = nullptr;
@@ -38,42 +39,78 @@ void SerializeShopItems()
 
 	Shop shopData;
 
-	ShopItem item;
-	item.cost = { 100, PriceType::Diamond };
-	item.description = "sadasdasdasd";
-	item.itemId = 10;
-	item.levelCap = 10;
-	item.name = "mahmut";
+	ShopItem drugStore;
+	drugStore.cost = { 10000, PriceType::Gold };
+	drugStore.description = "Best Pharmacy";
+	drugStore.itemId = 1;
+	drugStore.levelCap = 2;
+	drugStore.name = "Drugstore";
+	drugStore.texturePath = "../Textures/workshop/drugstore.png";
 
-	ShopItem item2;
-	item2.cost = { 100, PriceType::Silver };
-	item2.description = "sadasdasdasd2";
-	item2.itemId = 10;
-	item2.levelCap = 10;
-	item2.name = "mahmut2";
+	ShopItem government;
+	government.cost = { 12900, PriceType::Gold };
+	government.description = "Government Building";
+	government.itemId = 2;
+	government.levelCap = 3;
+	government.name = "Government";
+	government.texturePath = "../Textures/workshop/government.png";
 
-	ShopItem item3;
-	item3.cost = { 100, PriceType::Gold };
-	item3.description = "sadasdasdasd3";
-	item3.itemId = 10;
-	item3.levelCap = 10;
-	item3.name = "mahmut3";
+	ShopItem museum;
+	museum.cost = { 15999, PriceType::Gold };
+	museum.description = "Museum Building";
+	museum.itemId = 3;
+	museum.levelCap = 3;
+	museum.name = "Museum";
+	museum.texturePath = "../Textures/workshop/museum.png";
 
-	std::vector<ShopItem> items = { item, item2, item3 };
+	ShopItem propertyBuilding;
+	propertyBuilding.cost = { 100000, PriceType::Gold };
+	propertyBuilding.description = "Property Building";
+	propertyBuilding.itemId = 4;
+	propertyBuilding.levelCap = 6;
+	propertyBuilding.name = "Property";
+	propertyBuilding.texturePath = "../Textures/workshop/property.png";
 
-	std::vector<ShopItem> items2 = { item2, item, item3 };
+	ShopItem temple;
+	temple.cost = { 13000000, PriceType::Gold };
+	temple.description = "Temple Building";
+	temple.itemId = 5;
+	temple.levelCap = 10;
+	temple.name = "Temple";
+	temple.texturePath = "../Textures/workshop/Temple-icon.png";
 
-	shopData.shopItems[0] = items;
-	shopData.shopItems[1] = items2;
+	std::vector<ShopItem> workshops = { drugStore, government, museum, propertyBuilding, temple};
+
+	ShopItem bridge;
+	bridge.cost = { 13200000, PriceType::Gold };
+	bridge.description = "Bridge";
+	bridge.itemId = 6;
+	bridge.levelCap = 1;
+	bridge.name = "Bridge";
+	bridge.texturePath = "../Textures/decoration/government.png";
+
+	ShopItem hangar;
+	hangar.cost = { 1234900, PriceType::Gold };
+	hangar.description = "Hangar Building";
+	hangar.itemId = 7;
+	hangar.levelCap = 3;
+	hangar.name = "Hangar";
+	hangar.texturePath = "../Textures/decoration/hangar.png";
+
+
+	std::vector<ShopItem> decorations = { bridge, hangar};
+
+	shopData.shopItems["Workshops"] = workshops;
+	shopData.shopItems["Decorations"] = decorations;
 
 	TabData tab;
-	tab.name = "tab1";
+	tab.name = "Workshops";
 
 	TabData tab2;
-	tab.name = "tab2";
+	tab2.name = "Decorations";
 
-	shopData.tabs[0] = tab;
-	shopData.tabs[1] = tab2;
+	shopData.tabs["Workshops"] = tab;
+	shopData.tabs["Decorations"] = tab2;
 
 	archive(CEREAL_NVP(shopData));
 }
@@ -200,7 +237,7 @@ int main()
 		currentScene.update(window);
 
 		//window.draw(backgroundSprite);
-		//window.draw(gridArea);
+		window.draw(gridArea);
 
 		window.draw(serializeGridsButton);
 		serializeGridsButton.Update(window);

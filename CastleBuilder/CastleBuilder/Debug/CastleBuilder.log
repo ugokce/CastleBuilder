@@ -1,24 +1,22 @@
 ﻿  CastleBuilder.cpp
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(137,70): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(174,70): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(137,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(174,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(138,71): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(175,71): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(138,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(175,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
           with
           [
               T=float
           ]
-  GridTile.cpp
-  Generating Code...
   CastleBuilder.vcxproj -> C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\Debug\CastleBuilder.exe
