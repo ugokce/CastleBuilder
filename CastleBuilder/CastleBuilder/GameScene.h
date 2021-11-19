@@ -29,7 +29,6 @@ protected:
 private:
 	std::vector<SceneObject*> objectsToDraw;
 	sf::RectangleShape mapBackground;
-	//Button denemeButton;
 	std::vector<GridTile*> gridTiles;
 	sf::Vector2f size;
 

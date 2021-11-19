@@ -143,6 +143,69 @@ void SerializeGameConfig()
 	archive(CEREAL_NVP(config));
 }
 
+void CreateGridPositionEditor(const sf::FloatRect& gridArea)
+{
+	const Vector2f gridNodeSize = { 150, 100 };
+	const int numberOfGridsCanFitInX = gridArea.width / gridNodeSize.x;
+	const int numberOfGridsCanFitInY = gridArea.height / gridNodeSize.y;
+	const float startPointX = gridNodeSize.x * .5f * numberOfGridsCanFitInX * .5f;
+	const float startPointY = gridNodeSize.y * .5f * numberOfGridsCanFitInY * .5f;
+
+	for (int i = 0; i < numberOfGridsCanFitInX; i++)
+	{
+		for (int j = 0; j < numberOfGridsCanFitInY; j++)
+		{
+			sf::ConvexShape convex;
+			convex.setPointCount(4);
+			convex.setPoint(0, sf::Vector2f(75.f, 0.f));
+			convex.setPoint(1, sf::Vector2f(150.f, 50.f));
+			convex.setPoint(2, sf::Vector2f(75.f, 100.f));
+			convex.setPoint(3, sf::Vector2f(0.f, 50.f));
+			convex.setOutlineColor(sf::Color::Blue);
+			convex.setFillColor(Color::Transparent);
+			convex.setOutlineThickness(2.f);
+
+			const float gridWidth = convex.getGlobalBounds().width;
+			const float gridHeight = convex.getGlobalBounds().height;
+
+			convex.setPosition(Vector2f(startPointX + (i * gridWidth * .5f), startPointY + (i * gridHeight * .5f) + (j * gridHeight)));
+
+			gridVector.emplace_back(convex);
+		}
+	}
+}
+
+void HandleMouseClickOverGridPositionEditor(sf::RenderWindow& window)
+{
+	for (auto& grid : gridVector)
+	{
+		if (Mouse::isButtonPressed(Mouse::Left))
+		{
+			if (grid.getGlobalBounds().contains(Vector2f(mousePosition.x, mousePosition.y)))
+			{
+				if (!isAnItemSelected)
+				{
+					selectedGrid = &grid;
+				}
+
+				isAnItemSelected = true;
+			}
+		}
+		else
+		{
+			selectedGrid = nullptr;
+			isAnItemSelected = false;
+		}
+
+		window.draw(grid);
+	}
+
+	if (selectedGrid)
+	{
+		selectedGrid->setPosition(Vector2f((float)mousePosition.x - selectedGrid->getGlobalBounds().width * .5f, (float)mousePosition.y - selectedGrid->getGlobalBounds().height * .5f));
+	}
+}
+
 int main()
 {
 	SerializeShopItems();
@@ -160,22 +223,10 @@ int main()
 	gridArea.setFillColor(Color::Transparent);
 	gridArea.setPosition(screenSize.x * .1f, screenSize.y * .18f);
 
-	//Background Map
-	sf::RectangleShape backgroundSprite(sf::Vector2f(1024.f, 768.f));
-	auto* mapTexture = new sf::Texture();
-	mapTexture->loadFromFile(texture_path);
-	backgroundSprite.setTexture(mapTexture);
-	//Background Map
-
 	sf::View view = window.getDefaultView();
 
-	const Vector2f gridNodeSize = { 150, 100 };
 
-	const int numberOfGridsCanFitInX = gridArea.getGlobalBounds().width / gridNodeSize.x;
-	const int numberOfGridsCanFitInY = gridArea.getGlobalBounds().height / gridNodeSize.y;
-	const float startPointX = gridNodeSize.x * .5f * numberOfGridsCanFitInX * .5f;
-	const float startPointY = gridNodeSize.y * .5f * numberOfGridsCanFitInY * .5f;
-
+	CreateGridPositionEditor(gridArea.getGlobalBounds()); //Use this to place grids on the maps to their positions with your mouse
 
 
 	mapData.size = { gridArea.getSize().x, gridArea.getSize().y };
@@ -187,34 +238,8 @@ int main()
 	auto serializeGridsButton = Button("../Textures/shop.png", buttonSize, buttonPosition);
 	serializeGridsButton.onHoldEvent.addListener(new EventListener([=]() {
 
-		//SerializeGridTiles();
+		//SerializeGridTiles(); //Save grid tile positions to xml file, I used it as like a grid editor
 	}));
-
-	for (int i = 0; i < numberOfGridsCanFitInX; i++)
-	{
-		for (int j = 0; j < numberOfGridsCanFitInY; j++)
-		{
-
-
-			sf::ConvexShape convex;
-			convex.setPointCount(4);
-			convex.setPoint(0, sf::Vector2f(75.f, 0.f));
-			convex.setPoint(1, sf::Vector2f(150.f, 50.f));
-			convex.setPoint(2, sf::Vector2f(75.f, 100.f));
-			convex.setPoint(3, sf::Vector2f(0.f, 50.f));
-			convex.setOutlineColor(sf::Color::Blue);
-			convex.setFillColor(Color::Transparent);
-			convex.setOutlineThickness(2.f);
-			//convex.setScale(Vector2f(1 + (j * .1f), 1 + (j * .1f)));
-
-			const float gridWidth = convex.getGlobalBounds().width;
-			const float gridHeight = convex.getGlobalBounds().height;
-
-			convex.setPosition(Vector2f(startPointX + (i * gridWidth * .5f), startPointY + (i * gridHeight * .5f) + (j * gridHeight)));
-
-			gridVector.emplace_back(convex);
-		}
-	}
 
 
 	while (window.isOpen())
@@ -232,13 +257,13 @@ int main()
 		window.clear();
 		window.setView(view);
 
-		//Scene Draw And Update
+		//Scene Draw And Update, Grids and Scene Objects Will be Drawn in Scene
 		window.draw(currentScene);
 		currentScene.update(window);
 
-		//window.draw(backgroundSprite);
-		window.draw(gridArea);
+		//window.draw(gridArea); //Showing the possible grid area
 
+		//Grid Position Save Button
 		window.draw(serializeGridsButton);
 		serializeGridsButton.Update(window);
 
@@ -258,33 +283,7 @@ int main()
 			IsZoomed = false;
 		}
 
-		/*for (auto& grid : gridVector)
-		{
-			if (Mouse::isButtonPressed(Mouse::Left))
-			{
-				if (grid.getGlobalBounds().contains(Vector2f(mousePosition.x, mousePosition.y)))
-				{
-					if (!isAnItemSelected)
-					{
-						selectedGrid = &grid;
-					}
-					
-					isAnItemSelected = true;
-				}
-			}
-			else
-			{
-				selectedGrid = nullptr;
-				isAnItemSelected = false;
-			}
-
-			window.draw(grid);
-		}
-
-		if (selectedGrid)
-		{
-			selectedGrid->setPosition(Vector2f((float)mousePosition.x - selectedGrid->getGlobalBounds().width * .5f, (float)mousePosition.y - selectedGrid->getGlobalBounds().height * .5f));
-		}*/
+		//HandleMouseClickOverGridPositionEditor(window); //Draw and move grid position editor tiles
 		
 		window.display();
 	}

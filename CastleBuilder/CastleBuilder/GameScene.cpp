@@ -20,9 +20,6 @@ GameScene::GameScene(const sf::RenderWindow& window)
 	createBackground();
 
 	createGridTiles();
-
-	//denemeButton = Button("../Textures/shop.png", buttonSize, buttonPosition);
-	//addChildObject(&denemeButton);
 }
 
 GameScene::~GameScene()
