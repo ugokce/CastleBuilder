@@ -5,7 +5,10 @@
 #include "SceneObject.h"
 #include <vector>
 #include "Button.h"
-#include "GridTile.h"
+
+class Popup;
+class Button;
+class GridTile;
 
 namespace sf
 {
@@ -31,7 +34,11 @@ private:
 	sf::RectangleShape mapBackground;
 	std::vector<GridTile*> gridTiles;
 	sf::Vector2f size;
+	Button shopButton;
+	Popup* shopPopup = nullptr;
 
 	void createBackground();
 	void createGridTiles();
+	void createShopPopupButton();
+	void openShopPopup();
 };

@@ -5,6 +5,8 @@
 #include <cassert>
 #include "SFML\Graphics\RenderWindow.hpp"
 #include "MapManager.h"
+#include "Popup.h"
+#include "GridTile.h"
 
 GameScene::GameScene()
 {
@@ -20,10 +22,16 @@ GameScene::GameScene(const sf::RenderWindow& window)
 	createBackground();
 
 	createGridTiles();
+	createShopPopupButton();
 }
 
 GameScene::~GameScene()
 {
+	if (shopPopup)
+	{
+		shopPopup->Close();
+	}
+
 	objectsToDraw.clear();
 }
 
@@ -81,4 +89,40 @@ void GameScene::createGridTiles()
 		gridTiles.push_back(tile);
 		addChildObject(tile);
 	}
+}
+
+void GameScene::createShopPopupButton()
+{
+	const auto buttonPosition = sf::Vector2f(size.x * .8f, size.y * .8f);
+	sf::Vector2f buttonSize = sf::Vector2f(size.x * .2f, size.y * .2f);
+	shopButton = Button("../Textures/shop.png", buttonSize, buttonPosition);
+	addChildObject(&shopButton);
+	shopButton.onTapEvent.addListener(new EventListener([=]() {
+
+		if (shopPopup)
+		{
+			if (shopPopup->isVisible())
+			{
+				shopPopup->hide();
+			}
+			else
+			{
+				shopPopup->show();
+			}
+		}
+		else
+		{
+			openShopPopup();
+		}
+
+		}));
+}
+
+void GameScene::openShopPopup()
+{
+	sf::Vector2f popupSize = sf::Vector2f(size.x * .8f, size.y * .8f);
+	sf::Vector2f popupPosition = sf::Vector2f(size.x * .5f, size.y * .5f);
+	shopPopup = new Popup("../Textures/shopPopupBg.jpg", popupSize);
+	shopPopup->setPosition(popupPosition);
+	addChildObject(shopPopup);
 }
