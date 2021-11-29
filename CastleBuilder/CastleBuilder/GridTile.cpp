@@ -34,10 +34,12 @@ void GridTile::createBuildingImage()
 {
 	auto* mapTexture = new sf::Texture();
 	mapTexture->loadFromFile(data.buildingTexturePath);
-	sf::Vector2f textureSize = sf::Vector2f(mapTexture->getSize().x * scale, mapTexture->getSize().y * scale);
+	sf::Vector2f textureSize = sf::Vector2f(mapTexture->getSize().x * scale * .8f, mapTexture->getSize().y * scale * .8f);
 	buildingSprite = sf::RectangleShape(textureSize);
 	buildingSprite.setTexture(mapTexture);
-	buildingSprite.setPosition(position);
-	sf::Vector2f spriteScale = sf::Vector2f(mapTexture->getSize().x * scale , mapTexture->getSize().y * scale);
-	buildingSprite.setScale(spriteScale);
+	//sf::Vector2f spriteSize = sf::Vector2f(mapTexture->getSize().x * scale , mapTexture->getSize().y * scale);
+	//buildingSprite.setSize(spriteSize);
+
+	buildingSprite.setPosition(position.x + textureSize.x * .2f, position.y - textureSize.y * .17f);
+	//buildingSprite.setScale(spriteScale);
 }

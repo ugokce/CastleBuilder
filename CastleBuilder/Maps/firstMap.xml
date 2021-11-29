@@ -14,7 +14,7 @@
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
-				<buildingTexturePath>../Textures/decoration/hangar.png</buildingTexturePath>
+				<buildingTexturePath>../Textures/decoration/bridge.png</buildingTexturePath>
 			</value0>
 			<value1>
 				<position>
@@ -23,7 +23,7 @@
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
-				<buildingTexturePath></buildingTexturePath>
+				<buildingTexturePath>../Textures/decoration/hangar.png</buildingTexturePath>
 			</value1>
 			<value2>
 				<position>
@@ -32,7 +32,7 @@
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
-				<buildingTexturePath></buildingTexturePath>
+				<buildingTexturePath>../Textures/workshop/drugstore.png</buildingTexturePath>
 			</value2>
 			<value3>
 				<position>
@@ -41,7 +41,7 @@
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
-				<buildingTexturePath></buildingTexturePath>
+				<buildingTexturePath>../Textures/workshop/museum.png</buildingTexturePath>
 			</value3>
 			<value4>
 				<position>
@@ -50,7 +50,7 @@
 				</position>
 				<scale>1</scale>
 				<buildingId>0</buildingId>
-				<buildingTexturePath></buildingTexturePath>
+				<buildingTexturePath>../Textures/workshop/museum.png</buildingTexturePath>
 			</value4>
 			<value5>
 				<position>
@@ -187,6 +187,15 @@
 				<buildingId>0</buildingId>
 				<buildingTexturePath></buildingTexturePath>
 			</value19>
+			<value20>
+				<position>
+					<x>1000.92218017578125</x>
+					<y>500.0369873046875</y>
+				</position>
+				<scale>1</scale>
+				<buildingId>0</buildingId>
+				<buildingTexturePath></buildingTexturePath>
+			</value20>
 		</grids>
 		<mapName>firstMap</mapName>
 	</mapData>
