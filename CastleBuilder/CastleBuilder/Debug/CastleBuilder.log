@@ -1,2 +1,40 @@
-﻿  GridTile.cpp
+﻿  CastleBuilder.cpp
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(150,52): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(150,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(151,53): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(151,35): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(185,79): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\CastleBuilder\CastleBuilder.cpp(185,62): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
   CastleBuilder.vcxproj -> C:\Users\Ugurcan\Documents\CastleBuilder\CastleBuilder\Debug\CastleBuilder.exe

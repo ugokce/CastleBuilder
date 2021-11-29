@@ -17,12 +17,12 @@ public:
 
 	void hide()
 	{
-		visible = true;
+		visible = false;
 	}
 
 	void show()
 	{
-		visible = false;
+		visible = true;
 	}
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override = 0;

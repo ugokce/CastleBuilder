@@ -37,9 +37,5 @@ void GridTile::createBuildingImage()
 	sf::Vector2f textureSize = sf::Vector2f(mapTexture->getSize().x * scale * .8f, mapTexture->getSize().y * scale * .8f);
 	buildingSprite = sf::RectangleShape(textureSize);
 	buildingSprite.setTexture(mapTexture);
-	//sf::Vector2f spriteSize = sf::Vector2f(mapTexture->getSize().x * scale , mapTexture->getSize().y * scale);
-	//buildingSprite.setSize(spriteSize);
-
 	buildingSprite.setPosition(position.x + textureSize.x * .2f, position.y - textureSize.y * .17f);
-	//buildingSprite.setScale(spriteScale);
 }

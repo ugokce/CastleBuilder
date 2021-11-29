@@ -16,6 +16,7 @@
 #include "Button.h"
 #include "MapManager.h"
 #include <types/map.hpp>
+#include "Popup.h"
 
 using namespace sf;
 
@@ -233,13 +234,26 @@ int main()
 	mapData.mapName = "firstMap";
 	mapData.texturePath = "../Textures/Map1.jpg";
 
+	sf::Vector2f popupSize = sf::Vector2f(window.getSize().x * .8f, window.getSize().y * .8f);
+	sf::Vector2f popupPosition = sf::Vector2f(window.getSize().x * .5f, window.getSize().y * .5f);
+	Popup* denemePopup = new Popup("../Textures/shopPopupBg.jpg", popupSize);
+	denemePopup->setPosition(popupPosition);
+
 	const auto buttonPosition = sf::Vector2f(window.getSize().x * .8f, window.getSize().y * .8f);
 	sf::Vector2f buttonSize = sf::Vector2f(window.getSize().x * .2f, window.getSize().y * .2f);
 	auto serializeGridsButton = Button("../Textures/shop.png", buttonSize, buttonPosition);
-	serializeGridsButton.onHoldEvent.addListener(new EventListener([=]() {
+	serializeGridsButton.onTapEvent.addListener(new EventListener([=, &denemePopup]() {
+
+		if (denemePopup)
+		{
+			denemePopup->Close();
+			denemePopup = nullptr;
+		}
 
 		//SerializeGridTiles(); //Save grid tile positions to xml file, I used it as like a grid editor
 	}));
+	
+
 
 
 	while (window.isOpen())
@@ -266,6 +280,13 @@ int main()
 		//Grid Position Save Button
 		window.draw(serializeGridsButton);
 		serializeGridsButton.Update(window);
+
+		if (denemePopup)
+		{
+			window.draw(*denemePopup);
+			denemePopup->Update(window);
+		}
+
 
 		//ZOOM IN
 		if (Keyboard::isKeyPressed(Keyboard::Z) && !IsZoomed)

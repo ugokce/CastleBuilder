@@ -18,6 +18,7 @@ public:
 	virtual void Update(const sf::RenderWindow& window);
 
 	Event onHoldEvent;
+	Event onTapEvent;
 	Event onCancelEvent;
 	Event onHoverEvent;
 
@@ -27,6 +28,8 @@ private:
 	void OnTap();
 	void OnCancel();
 	void OnHover();
+
+	bool isPressed = false;
 
 	sf::Vector2f defaultScale;
 };

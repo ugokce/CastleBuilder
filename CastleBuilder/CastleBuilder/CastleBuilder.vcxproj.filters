@@ -48,6 +48,9 @@
     <ClCompile Include="GridTile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Popup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BuildingData.h">
@@ -99,6 +102,9 @@
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
     <ClInclude Include="GridTile.h">
+      <Filter>Header Files\SceneObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Popup.h">
       <Filter>Header Files\SceneObjects</Filter>
     </ClInclude>
   </ItemGroup>

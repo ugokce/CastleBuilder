@@ -49,13 +49,20 @@ void Button::Update(const sf::RenderWindow& window)
 
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
-			OnTap();
+			if (!isPressed)
+			{
+				OnTap();
+				onTapEvent();
+			}
+		
 			onHoldEvent();
+			isPressed = true;
 		}
 		else
 		{
 			OnCancel();
 			onCancelEvent();
+			isPressed = false;
 		}
 	}
 	else
